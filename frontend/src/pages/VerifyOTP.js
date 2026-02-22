@@ -12,7 +12,7 @@ function VerifyOTP() {
   const [success, setSuccess] = useState(location.state?.message || '');
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
-  const inputRefs = [useRef(), useRef(), useRef(), useRef()];
+  const inputRefs = React.useMemo(() => [useRef(), useRef(), useRef(), useRef()], []);
 
   useEffect(() => {
     if (!email) {
