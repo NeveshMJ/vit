@@ -16,7 +16,7 @@ function VerifyOTP() {
   const inputRef1 = useRef();
   const inputRef2 = useRef();
   const inputRef3 = useRef();
-  const inputRefs = [inputRef0, inputRef1, inputRef2, inputRef3];
+  const inputRefs = React.useMemo(() => [inputRef0, inputRef1, inputRef2, inputRef3], []);
 
   useEffect(() => {
     if (!email) {
