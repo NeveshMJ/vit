@@ -10,7 +10,7 @@ function ManagementComplaints() {
 
   useEffect(() => {
     fetchComplaints();
-  }, [filters]);
+  }, [filters, fetchComplaints]);
 
   const fetchComplaints = async () => {
     setLoading(true);
