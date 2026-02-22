@@ -49,8 +49,13 @@ router.post('/signup', async (req, res) => {
       await user.save();
     }
 
-    // Send OTP email
-    await sendOTP(email, otp);
+    // Send OTP email — separate try/catch so user record is preserved even if email fails
+    try {
+      await sendOTP(email, otp);
+    } catch (emailErr) {
+      console.error('Signup OTP email failed:', emailErr.message);
+      return res.status(500).json({ message: 'Account created but failed to send OTP email. Please use "Resend OTP" on the verification page.', email });
+    }
 
     res.status(200).json({ message: 'OTP sent to your email', email });
   } catch (error) {
@@ -105,7 +110,12 @@ router.post('/resend-otp', async (req, res) => {
       { $set: { otp: otp, otpExpiry: new Date(Date.now() + 5 * 60 * 1000) } }
     );
 
-    await sendOTP(email, otp);
+    try {
+      await sendOTP(email, otp);
+    } catch (emailErr) {
+      console.error('Resend OTP email failed:', emailErr.message);
+      return res.status(500).json({ message: 'Failed to send OTP email. Please check your email address and try again.' });
+    }
 
     res.status(200).json({ message: 'New OTP sent to your email' });
   } catch (error) {

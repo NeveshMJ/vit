@@ -254,14 +254,11 @@ router.post('/', auth(['user']), async (req, res) => {
     await complaint.save();
     console.log('Complaint saved successfully');
 
-    // Send email notification to assigned provider
-    if (assignedProvider) {
-      try {
-        await sendComplaintAssignment(assignedProvider.email, assignedProvider.name, complaint);
-        console.log(`[Email] Assignment notification sent to ${assignedProvider.email}`);
-      } catch (emailErr) {
-        console.error('[Email] Failed to send assignment notification:', emailErr.message);
-      }
+    // Send email notification to assigned provider (fire-and-forget, don't block response)
+    if (assignedProvider && assignedProvider.email) {
+      sendComplaintAssignment(assignedProvider.email, assignedProvider.name, complaint)
+        .then(() => console.log(`[Email] Assignment notification sent to ${assignedProvider.email}`))
+        .catch(emailErr => console.error(`[Email] Failed to send assignment notification to ${assignedProvider.email}:`, emailErr.message));
     }
 
     // Build response

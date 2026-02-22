@@ -97,12 +97,11 @@ router.put('/complaints/:id', auth(['provider']), async (req, res) => {
 
     await complaint.save();
 
-    // Send email notification to user about status change
-    try {
-      await sendStatusUpdate(complaint.userEmail, complaint.userName, complaint, status, resolution);
-      console.log(`[Email] Status update sent to ${complaint.userEmail} for ${complaint.ticketId}`);
-    } catch (emailErr) {
-      console.error('[Email] Failed to send status update:', emailErr.message);
+    // Send email notification to user about status change (fire-and-forget, don't block response)
+    if (complaint.userEmail) {
+      sendStatusUpdate(complaint.userEmail, complaint.userName, complaint, status, resolution)
+        .then(() => console.log(`[Email] Status update sent to ${complaint.userEmail} for ${complaint.ticketId}`))
+        .catch(emailErr => console.error(`[Email] Failed to send status update to ${complaint.userEmail} for ${complaint.ticketId}:`, emailErr.message));
     }
 
     res.json({ message: 'Complaint updated', complaint });
