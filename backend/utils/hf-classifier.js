@@ -2,7 +2,7 @@
 // @gradio/client is ESM-only, so we use dynamic import inside async functions
 
 // ============================================================
-// DEPARTMENT MAPPING — keywords from Vision API labels → department
+// DEPARTMENT MAPPING — keyword fallback when HF model is unavailable
 // ============================================================
 const DEPARTMENT_KEYWORDS = {
   'Water Resources': {
@@ -169,7 +169,7 @@ async function analyzeImage(base64Image) {
 }
 
 /**
- * Map Vision API results to the most appropriate department.
+ * Map HF model results (or fallback keyword scores) to the most appropriate department.
  * Returns { department, confidence, detectedLabels, reason }
  */
 function mapToDepartment(visionResults) {
@@ -296,13 +296,13 @@ async function detectDepartmentFromImage(base64Image) {
 
     return departmentResult;
   } catch (error) {
-    console.error('[Vision API] Department detection failed:', error.message);
+    console.error('[HF Classifier] Department detection failed:', error.message);
     // Return a fallback
     return {
       department: 'General',
       confidence: 0,
       detectedLabels: [],
-      reason: 'Vision API analysis failed: ' + error.message,
+      reason: 'HF classifier failed: ' + error.message,
       error: true
     };
   }

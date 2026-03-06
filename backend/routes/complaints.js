@@ -3,7 +3,7 @@ const Complaint = require('../models/Complaint');
 const User = require('../models/User');
 const auth = require('../middleware/auth');
 const { prioritizeComplaint, detectDuplicateOrFake } = require('../utils/gemini');
-const { detectDepartmentFromImage } = require('../utils/vision');
+const { detectDepartmentFromImage } = require('../utils/hf-classifier');
 const { sendComplaintAssignment, sendStatusUpdate } = require('../utils/mailer');
 
 const router = express.Router();
@@ -97,7 +97,7 @@ async function assignProviderForDepartment(department) {
   }
 }
 
-// ANALYZE IMAGE — Google Cloud Vision API auto-detects department
+// ANALYZE IMAGE — HuggingFace ML model (Nevesh06/Blaze) auto-detects department
 router.post('/analyze-image', auth(['user']), async (req, res) => {
   try {
     const { photo } = req.body;
@@ -105,7 +105,7 @@ router.post('/analyze-image', auth(['user']), async (req, res) => {
       return res.status(400).json({ message: 'Photo is required for analysis' });
     }
 
-    console.log('[Analyze] Starting image analysis via Google Cloud Vision...');
+    console.log('[Analyze] Starting image analysis via HuggingFace ML model...');
     const result = await detectDepartmentFromImage(photo);
 
     res.json({
