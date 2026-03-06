@@ -25,7 +25,7 @@ function LandingPage() {
           </button>
 
           <div className={`landing-nav-btns ${mobileMenuOpen ? 'mobile-open' : ''}`}>
-            <Link to="/login" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>Login</Link>
+            <Link to="/login" className="btn btn-secondary" onClick={() => setMobileMenuOpen(false)}>Sign In</Link>
             <Link to="/signup" className="btn btn-primary" onClick={() => setMobileMenuOpen(false)}>Get Started</Link>
           </div>
         </div>
@@ -34,13 +34,15 @@ function LandingPage() {
       {/* Hero */}
       <section className="landing-hero">
         <div className="landing-hero-content">
-          <p className="landing-hero-eyebrow animate-landing-1">Grievance Resolution for Tamil Nadu</p>
+          <p className="landing-hero-eyebrow animate-landing-1">
+            🏛️ Grievance Resolution · Tamil Nadu Government
+          </p>
           <h1 className="animate-landing-2">
-            Raise your concern.<br />We handle the rest.
+            Your Civic Voice.<br />Resolved Faster.
           </h1>
           <p className="landing-hero-subtitle animate-landing-3">
-            Snap a photo of any civic issue, and our system will route it
-            to the right department — with live tracking until it's resolved.
+            Snap a photo of any civic issue — road, water, electricity, sanitation —
+            and our AI routes it to the right department with live status tracking.
           </p>
           <div className="landing-hero-cta animate-landing-4">
             <Link to="/signup" className="btn btn-primary btn-lg landing-cta-main">
@@ -60,6 +62,8 @@ function LandingPage() {
             <div className="landing-stat-pill"><strong>24/7</strong> Available</div>
             <span className="landing-stat-sep">·</span>
             <div className="landing-stat-pill"><strong>AI</strong> Powered</div>
+            <span className="landing-stat-sep">·</span>
+            <div className="landing-stat-pill">🔐 <strong>2FA</strong> Secured</div>
           </div>
         </div>
       </section>
@@ -68,3 +72,6 @@ function LandingPage() {
 }
 
 export default LandingPage;
+
+
+

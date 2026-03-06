@@ -52,6 +52,24 @@ function Signup() {
           <p className="subtitle">Join GRIEVEX to report and track issues</p>
         </div>
 
+        {/* Auth Steps */}
+        <div className="auth-steps">
+          <div className="auth-step active">
+            <span className="auth-step-num">1</span>
+            <span>Register</span>
+          </div>
+          <div className="auth-step-line"></div>
+          <div className="auth-step">
+            <span className="auth-step-num">2</span>
+            <span>Verify Email</span>
+          </div>
+          <div className="auth-step-line"></div>
+          <div className="auth-step">
+            <span className="auth-step-num">3</span>
+            <span>Sign In</span>
+          </div>
+        </div>
+
         {error && <div className="error-msg">{error}</div>}
 
         <form onSubmit={handleSubmit}>
@@ -116,12 +134,12 @@ function Signup() {
           </div>
 
           <button type="submit" className="btn btn-primary auth-submit" disabled={loading}>
-            {loading ? 'Sending OTP...' : 'Sign Up & Verify Email'}
+            {loading ? 'Sending Verification Code...' : 'Create Account →'}
           </button>
         </form>
 
         <div className="auth-link">
-          Already have an account? <Link to="/login">Login</Link>
+          Already have an account? <Link to="/login">Sign In</Link>
         </div>
       </div>
     </div>
@@ -129,3 +147,5 @@ function Signup() {
 }
 
 export default Signup;
+
+

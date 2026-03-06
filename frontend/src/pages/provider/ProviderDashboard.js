@@ -196,7 +196,7 @@ function ProviderDashboard() {
       <div className="main-content">
         {/* Welcome banner */}
         <div style={{
-          background: 'linear-gradient(135deg, #1a237e 0%, #3949ab 60%, #5c6bc0 100%)',
+          background: 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #0ea5e9 100%)',
           borderRadius: '16px',
           padding: '24px 32px',
           marginBottom: '24px',
@@ -206,7 +206,7 @@ function ProviderDashboard() {
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '16px',
-          boxShadow: '0 8px 30px rgba(26, 35, 126, 0.25)'
+          boxShadow: '0 8px 30px rgba(30, 58, 138, 0.25)'
         }}>
           <div>
             <h1 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '4px', letterSpacing: '-0.5px', color: 'white' }}>
@@ -321,7 +321,7 @@ function ProviderDashboard() {
             {/* My Assigned Complaints */}
             {myComplaints.length > 0 && (
               <>
-                <h3 style={{ fontSize: '16px', color: '#1a237e', margin: '16px 0 8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <h3 style={{ fontSize: '16px', color: '#1e3a8a', margin: '16px 0 8px', display: 'flex', alignItems: 'center', gap: '8px' }}>
                   👤 Assigned to Me ({myComplaints.length})
                 </h3>
                 {myComplaints.map(complaint => renderComplaintCard(complaint, true))}
@@ -461,3 +461,5 @@ function ProviderDashboard() {
 }
 
 export default ProviderDashboard;
+
+

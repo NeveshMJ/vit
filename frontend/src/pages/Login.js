@@ -23,25 +23,17 @@ function Login() {
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
 
-      // Route based on role
       switch (res.data.user.role) {
-        case 'user':
-          navigate('/user/dashboard');
-          break;
-        case 'provider':
-          navigate('/provider/dashboard');
-          break;
-        case 'management':
-          navigate('/management/dashboard');
-          break;
-        default:
-          navigate('/');
+        case 'user': navigate('/user/dashboard'); break;
+        case 'provider': navigate('/provider/dashboard'); break;
+        case 'management': navigate('/management/dashboard'); break;
+        default: navigate('/');
       }
     } catch (err) {
       if (err.response?.data?.needsVerification) {
         navigate('/verify-otp', { state: { email: err.response.data.email } });
       } else {
-        setError(err.response?.data?.message || 'Login failed');
+        setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
       }
     } finally {
       setLoading(false);
@@ -60,7 +52,7 @@ function Login() {
           <div className="logo-section">
             <div className="emblem">GX</div>
             <h2>Welcome Back</h2>
-            <p className="subtitle">Login to GRIEVEX Portal</p>
+            <p className="subtitle">Sign in to GRIEVEX Portal</p>
           </div>
 
           {error && <div className="error-msg">{error}</div>}
@@ -91,12 +83,12 @@ function Login() {
             </div>
 
             <button type="submit" className="btn btn-primary auth-submit" disabled={loading}>
-              {loading ? 'Logging in...' : 'Login'}
+              {loading ? 'Signing in...' : 'Sign In'}
             </button>
           </form>
 
           <div className="auth-link">
-            Don't have an account? <Link to="/signup">Sign Up</Link>
+            Don't have an account? <Link to="/signup">Create Account</Link>
           </div>
         </div>
 
@@ -167,3 +159,5 @@ function Login() {
 }
 
 export default Login;
+
+

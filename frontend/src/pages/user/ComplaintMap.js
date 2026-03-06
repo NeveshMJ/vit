@@ -356,7 +356,7 @@ function ComplaintMap() {
                       onClick={() => setAreaFilter(area)}
                       style={{
                         padding: '6px 12px', borderRadius: '8px', border: '1px solid #d1d5db',
-                        background: areaFilter === area ? '#1a237e' : '#fff',
+                        background: areaFilter === area ? '#1e3a8a' : '#fff',
                         color: areaFilter === area ? '#fff' : '#374151',
                         fontSize: '11px', fontWeight: 600, cursor: 'pointer', flexShrink: 0
                       }}
@@ -375,3 +375,5 @@ function ComplaintMap() {
 }
 
 export default ComplaintMap;
+
+

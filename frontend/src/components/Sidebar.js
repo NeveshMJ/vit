@@ -70,10 +70,10 @@ function Sidebar({ role }) {
           <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <span style={{ 
               width: '34px', height: '34px',
-              background: 'linear-gradient(135deg, #ff6f00, #ffa040)',
+              background: 'linear-gradient(135deg, #0c4a9a, #0ea5e9)',
               borderRadius: '50%', display: 'flex', alignItems: 'center', 
               justifyContent: 'center', fontSize: '13px', fontWeight: '900',
-              boxShadow: '0 2px 8px rgba(255, 111, 0, 0.3)',
+              boxShadow: '0 2px 8px rgba(14, 165, 233, 0.4)',
               flexShrink: 0
             }}>GX</span>
             GRIEVEX
@@ -119,3 +119,5 @@ function Sidebar({ role }) {
 }
 
 export default Sidebar;
+
+

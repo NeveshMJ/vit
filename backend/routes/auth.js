@@ -144,7 +144,7 @@ router.post('/login', async (req, res) => {
       return res.status(400).json({ message: 'Invalid credentials' });
     }
 
-    // Update login stats using updateOne to avoid full validation on legacy docs
+    // Update login stats
     await User.updateOne(
       { _id: user._id },
       { $set: { lastLogin: new Date(), role: user.role.toLowerCase() }, $inc: { loginCount: 1 } }

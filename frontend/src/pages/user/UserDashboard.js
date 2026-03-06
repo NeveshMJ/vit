@@ -101,7 +101,7 @@ function UserDashboard() {
       <div className="main-content">
         {/* Welcome banner */}
         <div style={{
-          background: 'linear-gradient(135deg, #1a237e 0%, #3949ab 60%, #5c6bc0 100%)',
+          background: 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #0ea5e9 100%)',
           borderRadius: '16px',
           padding: '28px 32px',
           marginBottom: '24px',
@@ -111,7 +111,7 @@ function UserDashboard() {
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '16px',
-          boxShadow: '0 8px 30px rgba(26, 35, 126, 0.25)'
+          boxShadow: '0 8px 30px rgba(30, 58, 138, 0.25)'
         }}>
           <div>
             <h1 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '4px', letterSpacing: '-0.5px' }}>
@@ -200,7 +200,7 @@ function UserDashboard() {
             style={{
               flex: 1, padding: '12px 20px', borderRadius: '10px', border: 'none',
               fontWeight: 600, fontSize: '14px', cursor: 'pointer',
-              background: activeTab === 'my' ? '#1a237e' : 'transparent',
+              background: activeTab === 'my' ? '#1e3a8a' : 'transparent',
               color: activeTab === 'my' ? '#fff' : '#6b7280',
               transition: 'all 0.2s'
             }}
@@ -212,7 +212,7 @@ function UserDashboard() {
             style={{
               flex: 1, padding: '12px 20px', borderRadius: '10px', border: 'none',
               fontWeight: 600, fontSize: '14px', cursor: 'pointer',
-              background: activeTab === 'all' ? '#1a237e' : 'transparent',
+              background: activeTab === 'all' ? '#1e3a8a' : 'transparent',
               color: activeTab === 'all' ? '#fff' : '#6b7280',
               transition: 'all 0.2s'
             }}
@@ -394,3 +394,5 @@ function UserDashboard() {
 }
 
 export default UserDashboard;
+
+

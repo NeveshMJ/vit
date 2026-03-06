@@ -341,7 +341,7 @@ function WeatherReport() {
 
         {/* Location Dropdown */}
         <div style={{ ...cardStyle, marginBottom: '24px' }}>
-          <h3 style={{ margin: '0 0 12px', fontSize: '16px', fontWeight: 700, color: '#1a237e' }}>📍 Select Location Weather</h3>
+          <h3 style={{ margin: '0 0 12px', fontSize: '16px', fontWeight: 700, color: '#1e3a8a' }}>📍 Select Location Weather</h3>
           <select
             value={selectedCity?.name || ''}
             onChange={(e) => {
@@ -351,11 +351,11 @@ function WeatherReport() {
             style={{
               width: '100%', padding: '14px 16px', borderRadius: '12px',
               border: '2px solid #e5e7eb', fontSize: '15px', outline: 'none',
-              background: '#fff', color: selectedCity ? '#1a237e' : '#6b7280',
+              background: '#fff', color: selectedCity ? '#1e3a8a' : '#6b7280',
               cursor: 'pointer', fontWeight: selectedCity ? 600 : 400,
               transition: 'border-color 0.2s'
             }}
-            onFocus={(e) => e.target.style.borderColor = '#3949ab'}
+            onFocus={(e) => e.target.style.borderColor = '#2563eb'}
             onBlur={(e) => e.target.style.borderColor = '#e5e7eb'}
           >
             <option value="" disabled>— Choose a city or district —</option>
@@ -378,9 +378,9 @@ function WeatherReport() {
           <>
             {/* Current Weather Card */}
             <div style={{
-              background: 'linear-gradient(135deg, #1a237e 0%, #3949ab 60%, #5c6bc0 100%)',
+              background: 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #0ea5e9 100%)',
               borderRadius: '16px', padding: '28px', marginBottom: '20px', color: 'white',
-              boxShadow: '0 8px 30px rgba(26, 35, 126, 0.25)'
+              boxShadow: '0 8px 30px rgba(30, 58, 138, 0.25)'
             }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '20px' }}>
                 <div>
@@ -435,7 +435,7 @@ function WeatherReport() {
                       <div key={i} style={{
                         flex: '0 0 70px', textAlign: 'center', padding: '10px 6px',
                         borderRadius: '12px',
-                        background: isNow ? 'linear-gradient(135deg, #1a237e, #3949ab)' : '#f9fafb',
+                        background: isNow ? 'linear-gradient(135deg, #1e3a8a, #2563eb)' : '#f9fafb',
                         color: isNow ? '#fff' : '#374151', border: isNow ? 'none' : '1px solid #f3f4f6'
                       }}>
                         <p style={{ fontSize: '11px', fontWeight: 600, margin: 0, opacity: isNow ? 1 : 0.6 }}>
@@ -510,10 +510,10 @@ function WeatherReport() {
                   background: '#fafbfc', cursor: 'pointer', textAlign: 'left',
                   transition: 'all 0.2s'
                 }}
-                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#3949ab'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(26,35,126,0.1)'; }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = '#2563eb'; e.currentTarget.style.boxShadow = '0 4px 12px rgba(30,58,138,0.1)'; }}
                   onMouseLeave={e => { e.currentTarget.style.borderColor = '#e5e7eb'; e.currentTarget.style.boxShadow = 'none'; }}
                 >
-                  <p style={{ fontSize: '14px', fontWeight: 700, color: '#1a237e', margin: 0 }}>📍 {city.name}</p>
+                  <p style={{ fontSize: '14px', fontWeight: 700, color: '#1e3a8a', margin: 0 }}>📍 {city.name}</p>
                   <p style={{ fontSize: '11px', color: '#9ca3af', margin: '4px 0 0' }}>Click to view weather</p>
                 </button>
               ))}
@@ -526,3 +526,5 @@ function WeatherReport() {
 }
 
 export default WeatherReport;
+
+

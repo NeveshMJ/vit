@@ -31,7 +31,7 @@ function StatusTimeline({ complaint }) {
                   left: '-50%',
                   width: '100%',
                   height: '3px',
-                  background: isActive ? '#1a237e' : '#e5e7eb',
+                  background: isActive ? '#1e3a8a' : '#e5e7eb',
                   zIndex: 0,
                   transition: 'background 0.3s'
                 }} />
@@ -47,10 +47,10 @@ function StatusTimeline({ complaint }) {
                 fontSize: '16px',
                 fontWeight: 700,
                 zIndex: 1,
-                background: isActive ? '#1a237e' : '#f3f4f6',
+                background: isActive ? '#1e3a8a' : '#f3f4f6',
                 color: isActive ? '#fff' : '#9ca3af',
                 border: isCurrent ? '3px solid #3f51b5' : '2px solid transparent',
-                boxShadow: isCurrent ? '0 0 0 4px rgba(26,35,126,0.15)' : 'none',
+                boxShadow: isCurrent ? '0 0 0 4px rgba(30,58,138,0.15)' : 'none',
                 transition: 'all 0.3s'
               }}>
                 {isActive ? STATUS_ICONS[step] : (i + 1)}
@@ -59,7 +59,7 @@ function StatusTimeline({ complaint }) {
               <p style={{
                 fontSize: '11px',
                 fontWeight: isCurrent ? 700 : 500,
-                color: isActive ? '#1a237e' : '#9ca3af',
+                color: isActive ? '#1e3a8a' : '#9ca3af',
                 margin: '6px 0 0',
                 textAlign: 'center'
               }}>
@@ -96,7 +96,7 @@ function StatusTimeline({ complaint }) {
                 width: '10px',
                 height: '10px',
                 borderRadius: '50%',
-                background: i === history.length - 1 ? '#1a237e' : '#d1d5db'
+                background: i === history.length - 1 ? '#1e3a8a' : '#d1d5db'
               }} />
               <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <span style={{ fontSize: '13px', fontWeight: 600, color: '#374151' }}>
@@ -376,3 +376,5 @@ function MyComplaints() {
 }
 
 export default MyComplaints;
+
+

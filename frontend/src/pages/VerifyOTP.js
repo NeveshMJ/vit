@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import API from '../api';
 
@@ -6,7 +6,7 @@ function VerifyOTP() {
   const location = useLocation();
   const navigate = useNavigate();
   const email = location.state?.email;
-  
+
   const [otp, setOtp] = useState(['', '', '', '']);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(location.state?.message || '');
@@ -31,8 +31,6 @@ function VerifyOTP() {
     newOtp[index] = value;
     setOtp(newOtp);
     setError('');
-
-    // Auto-focus next input
     if (value && index < 3) {
       inputRefs[index + 1].current?.focus();
     }
@@ -82,11 +80,14 @@ function VerifyOTP() {
 
   return (
     <div className="auth-page">
-      <div className="auth-card">
+      <div className="auth-card otp-card">
         <div className="logo-section">
-          <div className="emblem">TN</div>
-          <h2>Verify Email</h2>
-          <p className="subtitle">Enter the 4-digit OTP sent to<br /><strong>{email}</strong></p>
+          <div className="emblem">GX</div>
+          <h2>Verify Your Email</h2>
+          <p className="subtitle">
+            Enter the 4-digit OTP sent to<br />
+            <strong>{email}</strong>
+          </p>
         </div>
 
         {error && <div className="error-msg">{error}</div>}
@@ -99,6 +100,7 @@ function VerifyOTP() {
                 key={index}
                 ref={inputRefs[index]}
                 type="text"
+                inputMode="numeric"
                 maxLength="1"
                 value={digit}
                 onChange={(e) => handleChange(index, e.target.value.replace(/[^0-9]/g, ''))}
@@ -108,7 +110,7 @@ function VerifyOTP() {
           </div>
 
           <button type="submit" className="btn btn-primary auth-submit" disabled={loading}>
-            {loading ? 'Verifying...' : 'Verify OTP'}
+            {loading ? 'Verifying...' : 'Verify Email'}
           </button>
         </form>
 
@@ -117,14 +119,14 @@ function VerifyOTP() {
           <button
             onClick={handleResend}
             disabled={resending}
-            style={{ background: 'none', border: 'none', color: '#1a237e', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', fontSize: '14px' }}
+            style={{ background: 'none', border: 'none', color: 'var(--primary)', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', fontSize: '14px' }}
           >
             {resending ? 'Sending...' : 'Resend OTP'}
           </button>
         </div>
 
         <div className="auth-link">
-          <Link to="/signup">← Back to Signup</Link>
+          <Link to="/signup">â† Back to Signup</Link>
         </div>
       </div>
     </div>

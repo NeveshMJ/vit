@@ -40,7 +40,7 @@ function ManagementDashboard() {
       <div className="main-content">
         {/* Dashboard header with gradient banner */}
         <div style={{
-          background: 'linear-gradient(135deg, #1a237e 0%, #3949ab 60%, #5c6bc0 100%)',
+          background: 'linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #0ea5e9 100%)',
           borderRadius: '16px',
           padding: '24px 32px',
           marginBottom: '24px',
@@ -50,7 +50,7 @@ function ManagementDashboard() {
           alignItems: 'center',
           flexWrap: 'wrap',
           gap: '16px',
-          boxShadow: '0 8px 30px rgba(26, 35, 126, 0.25)'
+          boxShadow: '0 8px 30px rgba(30, 58, 138, 0.25)'
         }}>
           <div>
             <h1 style={{ fontSize: '24px', fontWeight: '800', marginBottom: '4px', letterSpacing: '-0.5px', color: 'white' }}>
@@ -128,7 +128,7 @@ function ManagementDashboard() {
             <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
               {[
                 { label: 'Critical', value: priorityBreakdown?.critical || 0, color: '#c62828', bg: '#ffebee' },
-                { label: 'High', value: priorityBreakdown?.high || 0, color: '#e65100', bg: '#fff3e0' },
+                { label: 'High', value: priorityBreakdown?.high || 0, color: '#2563eb', bg: '#eff6ff' },
                 { label: 'Medium', value: priorityBreakdown?.medium || 0, color: '#1565c0', bg: '#e3f2fd' },
                 { label: 'Low', value: priorityBreakdown?.low || 0, color: '#2e7d32', bg: '#e8f5e9' }
               ].map(item => (
@@ -161,7 +161,7 @@ function ManagementDashboard() {
                     </div>
                     <div className="dept-stat-row">
                       <span>Registered</span>
-                      <span style={{ color: '#e65100' }}>{dept.registered}</span>
+                      <span style={{ color: '#2563eb' }}>{dept.registered}</span>
                     </div>
                     <div className="dept-stat-row">
                       <span>Accepted</span>
@@ -228,7 +228,7 @@ function ManagementDashboard() {
                   <tbody>
                     {recentComplaints.map(c => (
                       <tr key={c._id}>
-                        <td><span style={{ fontFamily: 'monospace', fontWeight: 600, color: '#1a237e' }}>{c.ticketId}</span></td>
+                        <td><span style={{ fontFamily: 'monospace', fontWeight: 600, color: '#1e3a8a' }}>{c.ticketId}</span></td>
                         <td>{c.department}</td>
                         <td>{c.area}</td>
                         <td><span className={`badge badge-${c.priority.toLowerCase()}`}>{c.priority}</span></td>
@@ -253,3 +253,5 @@ function ManagementDashboard() {
 }
 
 export default ManagementDashboard;
+
+

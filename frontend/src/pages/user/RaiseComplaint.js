@@ -355,7 +355,7 @@ function RaiseComplaint() {
                               {detectedArea && (
                                 <span style={{
                                   display: 'inline-block', marginTop: '6px',
-                                  padding: '4px 12px', background: '#1a237e', color: '#fff',
+                                  padding: '4px 12px', background: '#1e3a8a', color: '#fff',
                                   borderRadius: '16px', fontSize: '12px', fontWeight: 600
                                 }}>
                                   District: {detectedArea}
@@ -438,7 +438,7 @@ function RaiseComplaint() {
                           <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '8px' }}>
                             <span style={{
                               display: 'inline-block', padding: '6px 14px',
-                              background: '#1a237e', color: '#fff',
+                              background: '#1e3a8a', color: '#fff',
                               borderRadius: '20px', fontWeight: 700, fontSize: '14px'
                             }}>
                               🏢 {detectedDepartment}
@@ -516,3 +516,5 @@ function RaiseComplaint() {
 }
 
 export default RaiseComplaint;
+
+
